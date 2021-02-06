@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RosarioNews</string>
+    <string name="origin">%s • %s</string>
 </resources>

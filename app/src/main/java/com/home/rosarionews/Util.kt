@@ -1,11 +1,11 @@
 package com.home.rosarionews
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.homecleanarchitecture.domain.News
-import com.squareup.picasso.Picasso
 
 @BindingAdapter(value = ["setAdapter"])
 fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
@@ -23,17 +23,18 @@ fun RecyclerView.setRecyclerViewProperties(data: MutableList<News>?) {
     }
 }
 
-
 @BindingAdapter("setImageUrl")
 fun ImageView.bindImageUrl(url: String?) {
     if (!url.isNullOrEmpty()) {
         Glide.with(this.context)
             .load(url)
             .into(this)
-        /* Picasso.get()
-             .load(url)
-             .fit()
-             .centerCrop()
-             .into(this)*/
     }
+}
+
+@BindingAdapter("setOrigin")
+fun TextView.bindOrigin(news: News) {
+    val date = news.publishedAt
+    val result: String = date.substring(0, date.indexOf("T"))
+    text = String.format(context.getString(R.string.origin, news.origin, result))
 }

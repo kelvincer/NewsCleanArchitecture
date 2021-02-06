@@ -32,8 +32,6 @@ class MainViewModel @Inject constructor(val requestNews: RequestNews) : ViewMode
 
     init {
         viewModelScope.launch {
-            //val newsRepository = NewsRepository(NewsDataSourceImpl(retrofit))
-            //val requestNews = RequestNews(newsRepository)
             _visibilityLiveData.value = true
             val news = requestNews.getNews()
             _newsLiveData.value = news

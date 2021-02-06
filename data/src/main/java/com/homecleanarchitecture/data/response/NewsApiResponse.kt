@@ -24,4 +24,9 @@ data class Source(
     val name: String
 )
 
-fun NewsApiResponse.toDomainNews(): List<News> = articles.map { News(it.title, it.description, it.urlToImage, it.url, it.publishedAt) }
+fun NewsApiResponse.toDomainNews(): List<News> = articles.map {
+    News(
+        it.title, it.description,
+        it.urlToImage, it.url, it.publishedAt, it.source.name
+    )
+}
