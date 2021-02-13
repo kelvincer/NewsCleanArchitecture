@@ -1,6 +1,6 @@
-package com.homecleanarchitecture.data.response
+package com.homecleanarchitecture.data.home.response
 
-import com.homecleanarchitecture.domain.News
+import com.homecleanarchitecture.domain.home.News
 
 data class NewsApiResponse(
     val status: String,
@@ -27,6 +27,7 @@ data class Source(
 fun NewsApiResponse.toDomainNews(): List<News> = articles.map {
     News(
         it.title, it.description,
-        it.urlToImage, it.url, it.publishedAt, it.source.name
+        it.urlToImage, it.url, it.publishedAt, it.source.name,
+        it.url
     )
 }

@@ -1,8 +1,8 @@
 package com.homecleanarchitecture.data
 
-import com.homecleanarchitecture.data.response.NewsApiResponse
-import com.homecleanarchitecture.data.response.toDomainNews
-import com.homecleanarchitecture.domain.News
+import com.homecleanarchitecture.data.home.response.NewsApiResponse
+import com.homecleanarchitecture.data.home.response.toDomainNews
+import com.homecleanarchitecture.domain.home.News
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(private val newsDataSource: NewsDataSource) {

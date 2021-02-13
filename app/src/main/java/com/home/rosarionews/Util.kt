@@ -5,7 +5,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.homecleanarchitecture.domain.News
+import com.home.rosarionews.ui.fragment.home.MainAdapter
+import com.homecleanarchitecture.domain.home.News
 
 @BindingAdapter(value = ["setAdapter"])
 fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {

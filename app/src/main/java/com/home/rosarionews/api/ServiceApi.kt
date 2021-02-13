@@ -1,6 +1,6 @@
 package com.home.rosarionews.api
 
-import com.homecleanarchitecture.data.response.NewsApiResponse
+import com.homecleanarchitecture.data.home.response.NewsApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

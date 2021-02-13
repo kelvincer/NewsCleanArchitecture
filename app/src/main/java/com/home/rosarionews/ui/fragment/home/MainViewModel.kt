@@ -1,22 +1,14 @@
-package com.home.rosarionews
+package com.home.rosarionews.ui.fragment.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.homecleanarchitecture.domain.News
-import com.homecleanarchitecture.usecases.RequestNews
+import com.homecleanarchitecture.domain.home.News
+import com.homecleanarchitecture.usecases.home.RequestNews
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,19 +22,6 @@ class MainViewModel @Inject constructor(val requestNews: RequestNews) : ViewMode
     private val _visibilityLiveData = MutableLiveData<Boolean>()
     val visibilityLiveData: LiveData<Boolean>
         get() = _visibilityLiveData
-
-    private val _newsLiveData = MutableLiveData<List<News>>()
-    val newsLiveData: LiveData<List<News>>
-        get() = _newsLiveData
-
-    /*init {
-        viewModelScope.launch {
-            _visibilityLiveData.value = true
-            val news = requestNews.getNews()
-            _newsLiveData.value = news
-            _visibilityLiveData.value = false
-        }
-    }*/
 
     init {
         viewModelScope.launch {

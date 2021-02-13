@@ -1,7 +1,7 @@
-package com.homecleanarchitecture.usecases
+package com.homecleanarchitecture.usecases.home
 
 import com.homecleanarchitecture.data.NewsRepository
-import com.homecleanarchitecture.domain.News
+import com.homecleanarchitecture.domain.home.News
 import javax.inject.Inject
 
 class RequestNews @Inject constructor(private val newsRepository: NewsRepository) {

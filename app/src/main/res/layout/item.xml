@@ -8,7 +8,7 @@
 
         <variable
             name="news"
-            type="com.homecleanarchitecture.domain.News" />
+            type="com.homecleanarchitecture.domain.home.News" />
 
     </data>
 
@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="18dp"
         android:layout_marginBottom="18dp"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="12dp"
         card_view:cardElevation="8dp">
 

@@ -1,10 +1,13 @@
-package com.home.rosarionews
+package com.home.rosarionews.ui.fragment.home
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.home.rosarionews.databinding.ItemBinding
-import com.homecleanarchitecture.domain.News
+import com.homecleanarchitecture.domain.home.News
+
 
 class MainAdapter(private val newsList: MutableList<News>) :
     RecyclerView.Adapter<MainAdapter.ListViewHolder>() {
@@ -31,6 +34,12 @@ class MainAdapter(private val newsList: MutableList<News>) :
         fun bind(news: News) {
             binding.news = news
             binding.executePendingBindings()
+            binding.root.setOnClickListener {
+                Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse(news.address)
+                    binding.root.context.startActivity(this)
+                }
+            }
         }
     }
 }

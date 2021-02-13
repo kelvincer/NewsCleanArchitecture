@@ -1,4 +1,4 @@
-package com.home.rosarionews
+package com.home.rosarionews.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
