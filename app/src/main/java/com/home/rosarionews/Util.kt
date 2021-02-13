@@ -23,6 +23,14 @@ fun RecyclerView.setRecyclerViewProperties(data: MutableList<News>?) {
     }
 }
 
+@BindingAdapter("newsdata")
+fun RecyclerView.bindData(data: List<News>) {
+    val adapter = this.adapter
+    if (adapter is MainAdapter && data != null) {
+        adapter.setData(data.toMutableList())
+    }
+}
+
 @BindingAdapter("setImageUrl")
 fun ImageView.bindImageUrl(url: String?) {
     if (!url.isNullOrEmpty()) {

@@ -10,6 +10,8 @@ import com.homecleanarchitecture.usecases.RequestNews
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,6 +24,9 @@ class MainViewModel @Inject constructor(val requestNews: RequestNews) : ViewMode
 
     val TAG = MainViewModel::class.java.canonicalName
 
+    private val _newsStateFlow = MutableStateFlow<List<News>>(emptyList())
+    val newsStateFlow = _newsStateFlow
+
     private val _visibilityLiveData = MutableLiveData<Boolean>()
     val visibilityLiveData: LiveData<Boolean>
         get() = _visibilityLiveData
@@ -30,11 +35,20 @@ class MainViewModel @Inject constructor(val requestNews: RequestNews) : ViewMode
     val newsLiveData: LiveData<List<News>>
         get() = _newsLiveData
 
-    init {
+    /*init {
         viewModelScope.launch {
             _visibilityLiveData.value = true
             val news = requestNews.getNews()
             _newsLiveData.value = news
+            _visibilityLiveData.value = false
+        }
+    }*/
+
+    init {
+        viewModelScope.launch {
+            _visibilityLiveData.value = true
+            val news = requestNews.getNews()
+            _newsStateFlow.value = news
             _visibilityLiveData.value = false
         }
     }
