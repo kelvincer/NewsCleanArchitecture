@@ -1,4 +1,4 @@
-package com.homecleanarchitecture.data
+package com.homecleanarchitecture.data.home
 
 import com.homecleanarchitecture.data.home.response.NewsApiResponse
 import com.homecleanarchitecture.data.home.response.toDomainNews
@@ -16,5 +16,3 @@ class NewsRepository @Inject constructor(private val newsDataSource: NewsDataSou
 interface NewsDataSource {
     suspend fun getServiceNews(q: String): NewsApiResponse
 }
-
-

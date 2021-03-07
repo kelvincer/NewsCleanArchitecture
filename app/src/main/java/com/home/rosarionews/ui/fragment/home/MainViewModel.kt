@@ -23,11 +23,23 @@ class MainViewModel @Inject constructor(val requestNews: RequestNews) : ViewMode
     val visibilityLiveData: LiveData<Boolean>
         get() = _visibilityLiveData
 
-    init {
+    private val _newsLiveData = MutableLiveData<List<News>>()
+    val newsLiveData = _newsLiveData
+
+    /*init {
         viewModelScope.launch {
             _visibilityLiveData.value = true
             val news = requestNews.getNews()
             _newsStateFlow.value = news
+            _visibilityLiveData.value = false
+        }
+    }*/
+
+    init {
+        viewModelScope.launch {
+            _visibilityLiveData.value = true
+            val news = requestNews.getNews()
+            _newsLiveData.value = news
             _visibilityLiveData.value = false
         }
     }
