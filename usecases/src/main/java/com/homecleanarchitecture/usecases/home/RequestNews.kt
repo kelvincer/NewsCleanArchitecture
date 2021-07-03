@@ -1,6 +1,6 @@
 package com.homecleanarchitecture.usecases.home
 
-import com.homecleanarchitecture.data.home.NewsRepository
+import com.homecleanarchitecture.data.home.repositories.NewsRepository
 import com.homecleanarchitecture.domain.home.News
 import javax.inject.Inject
 
